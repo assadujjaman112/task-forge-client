@@ -8,7 +8,7 @@ const UpdateTask = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    axios.patch(`http://localhost:5000/tasks/${id.id}`, data).then((res) => {
+    axios.patch(`https://task-forge-server-nine.vercel.app/tasks/${id.id}`, data).then((res) => {
       if (res.data.modifiedCount > 0) {
         Swal.fire({
           title: "Success",

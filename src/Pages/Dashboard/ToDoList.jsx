@@ -13,7 +13,7 @@ const ToDoList = () => {
   const { data: tasks = [], refetch } = useQuery({
     queryKey: ["tasks"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/tasks");
+      const res = await axios.get("https://task-forge-server-nine.vercel.app/tasks");
       return res.data;
     },
   });
@@ -34,7 +34,7 @@ const ToDoList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/tasks/${_id}`).then((res) => {
+        axios.delete(`https://task-forge-server-nine.vercel.app/tasks/${_id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             refetch();
             Swal.fire({

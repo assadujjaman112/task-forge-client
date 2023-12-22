@@ -20,7 +20,7 @@ const CreateTask = () => {
       priority : data.priority,
       status : "toDo"
     }
-    axios.post("http://localhost:5000/tasks", task).then((res) => {
+    axios.post("https://task-forge-server-nine.vercel.app/tasks", task).then((res) => {
       console.log(res.data);
     
     });

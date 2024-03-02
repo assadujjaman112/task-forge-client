@@ -2,11 +2,14 @@ import axios from "axios";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const CreateTask = () => {
   const {user} = useContext(AuthContext);
+  const navigate = useNavigate();
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
@@ -22,6 +25,9 @@ const CreateTask = () => {
     }
     axios.post("https://task-forge-server-nine.vercel.app/tasks", task).then((res) => {
       console.log(res.data);
+      reset();
+      navigate("/dashboard/toDoList")
+
     
     });
   };
